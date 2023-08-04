@@ -5,6 +5,16 @@ import org.Game.Resources.EarthRes;
 import java.util.Random;
 
 public class Mechanic {
+    private int level;
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     public void randomIncrement(EarthRes earthRes) {
 
         Random random = new Random();
