@@ -28,8 +28,7 @@ public class View {
                                 shop - in shop
                                 stop - exit from menu
                                 print - print your resources 
-                                                                
-                                                                
+                                                                              
                                 """);
                 String scan = in.nextLine();
                 if (scan.equals("print")) {
