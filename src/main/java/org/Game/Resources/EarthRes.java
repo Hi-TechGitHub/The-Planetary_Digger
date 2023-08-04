@@ -21,44 +21,7 @@ public class EarthRes {
                 + "Gases - " + gases + "\n"
                 + "Precious stones - " + preciousStones + "\n";
     }
-    public void randomIncrement() {
-        Random random = new Random();
 
-        // dirt с 20% шансом
-        if (random.nextInt(100) < 20) {
-            dirt++;
-        }
-
-        // wood с 10% шансом
-        if (random.nextInt(100) < 10) {
-            wood++;
-        }
-
-        // preciousStones с 5% шансом
-        if (random.nextInt(100) < 5) {
-            preciousStones++;
-        }
-
-        // oil с 15% шансом
-        if (random.nextInt(100) < 15) {
-            oil++;
-        }
-
-        // water с 20% шансом
-        if (random.nextInt(100) < 20) {
-            water++;
-        }
-
-        // stone с 20% шансом
-        if (random.nextInt(100) < 20) {
-            stone++;
-        }
-
-        // gases с 10% шансом
-        if (random.nextInt(100) < 10) {
-            gases++;
-        }
-    }
 
     public int getPreciousStones() {
         return preciousStones;

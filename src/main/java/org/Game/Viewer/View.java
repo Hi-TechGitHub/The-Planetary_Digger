@@ -1,11 +1,13 @@
 package org.Game.Viewer;
 
+import org.Game.Mechanics.Mechanic;
 import org.Game.Resources.EarthRes;
 
 import java.util.Scanner;
 
 public class View {
     public static void main(String[] args) {
+        Mechanic mechanic = new Mechanic();
         EarthRes earthRes = new EarthRes();
         boolean play = true;
         int level = 15;
@@ -23,7 +25,7 @@ public class View {
             }
             System.out.println("dig");
             for (int i = level; i != 0; i--) {
-                earthRes.randomIncrement();
+                mechanic.randomIncrement(earthRes);
             }
         }
 
