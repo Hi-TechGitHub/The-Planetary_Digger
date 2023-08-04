@@ -35,8 +35,8 @@ public class EarthRes {
         return wood;
     }
 
-    public void setWood(int wood) {
-        this.wood = wood;
+    public void setWood(int _wood) {
+       this.wood = _wood;
     }
 
     public int getOil() {

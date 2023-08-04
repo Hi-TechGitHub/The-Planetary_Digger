@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        Mechanic mechanic = new Mechanic();
         EarthRes earthRes = new EarthRes();
-        Craft.pickaxe(earthRes);
+        earthRes.setWood(350);
+        earthRes.setStone(350);
+        Craft.pickaxe(earthRes, mechanic);
+        System.out.println(mechanic.getLevel());
     }
 }

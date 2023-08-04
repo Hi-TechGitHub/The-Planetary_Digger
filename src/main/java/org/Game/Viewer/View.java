@@ -3,6 +3,7 @@ package org.Game.Viewer;
 import org.Game.Mechanics.Mechanic;
 import org.Game.Resources.EarthRes;
 import org.Game.Crafts.Craft;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,24 +12,29 @@ public class View {
         Mechanic mechanic = new Mechanic();
         EarthRes earthRes = new EarthRes();
         boolean play = true;
-        int level = 1;
+        mechanic.setLevel(1);
 
-        System.out.println("write \"stop\" to stop");
-        System.out.println("press Enter to dig");
-        System.out.printf("Your level is %s - in one click you conduct %s excavation", level, level);
+
         while (true) {
+            Scanner exitScan = new Scanner(System.in);
+            System.out.printf
+                    ("Your level is %s - in one click you conduct %s excavation", mechanic.getLevel(), mechanic.getLevel());
             while (play) {
                 Scanner in = new Scanner(System.in);
+
                 System.out.println(
                         """
                                 dig - dig earth
                                 shop - in shop
-                                exit - exit
-                                
-                                
-                                
+                                stop - exit from menu
+                                print - print your resources 
+                                                                
+                                                                
                                 """);
                 String scan = in.nextLine();
+                if (scan.equals("print")) {
+                    System.out.println(earthRes.toString());
+                }
                 if (scan.equals("dig")) {
                     if (scan.equals("stop")) {
                         break;
@@ -41,14 +47,13 @@ public class View {
                         if (digging.equals("stop")) {
                             break;
                         }
-                        for (int i = level; i != 0; i--) {
+                        for (int i = mechanic.getLevel(); i != 0; i--) {
                             mechanic.randomIncrement(earthRes);
                         }
 
                     }
                 }
-                if (scan.equals("exit")) {
-                    System.out.println("Пока");
+                if (scan.equals("stop")) {
                     break;
                 }
                 if (scan.equals("shop")) {
@@ -63,21 +68,25 @@ public class View {
                     arrayList.add("pickaxe");
                     for (int i = 0; i < arrayList.size(); i++) {
                         System.out.println(arrayList.get(i));
-                        String ans = in.nextLine();
-                        if (ans == "старт" || ans == "start") {
+                        String ans = in2.nextLine();
+                        if (ans.equals("старт") || ans.equals("start")) {
                             i = 0;
                         }
-                        if (ans == "exit") {
+                        if (ans.equals("exit")) {
                             break;
                         }
-                        if (ans == "buy") {
-                            Craft.pickaxe(earthRes);
+                        if (ans.equals("buy")) {
+                            Craft.pickaxe(earthRes, mechanic);
                         }
                     }
                     System.out.println(arrayList);
                 }
             }
-            System.out.println("the digging is complete");
+            System.out.println("exit or continue");
+            String exit = exitScan.nextLine();
+            if (exit.equals("exit")) {
+                break;
+            }
             System.out.println("Your resources");
             System.out.println(earthRes.toString());
 
